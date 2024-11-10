@@ -1,10 +1,10 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Mulish } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const mulish = Mulish({ subsets: ["latin-ext"] });
 
 export const metadata: Metadata = {
   title: "Finance AI",
@@ -23,7 +23,7 @@ export default function RootLayout({
       }}
     >
       <html lang="pt-BR">
-        <body className={`${inter.className} dark antialiased`}>
+        <body className={`${mulish.className} dark antialiased`}>
           {children}
         </body>
       </html>
