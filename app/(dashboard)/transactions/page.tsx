@@ -1,11 +1,11 @@
+import { getTransactions } from "@/actions/transactions";
 import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/ui/data-table";
-import { db } from "@/lib/prisma";
 import { ArrowDownUpIcon } from "lucide-react";
 import { transactionColumns } from "./_columns";
 
 const TransactionsPage = async () => {
-  const transactions = await db.transaction.findMany({});
+  const transactions = await getTransactions();
 
   return (
     <div className="space-y-6 p-6">
