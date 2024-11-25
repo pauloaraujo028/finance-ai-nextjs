@@ -9,7 +9,7 @@ export const formSchema = z.object({
   name: z.string().trim().min(1, {
     message: "O nome é obrigatório.",
   }),
-  amount: z.string().trim().min(1, {
+  amount: z.number().positive({
     message: "O valor é obrigatório.",
   }),
   type: z.nativeEnum(TransactionType, {
@@ -26,4 +26,11 @@ export const formSchema = z.object({
   }),
 });
 
-export type FormSchema = z.infer<typeof formSchema>;
+export const createTransactionSchema = z.object({
+  name: z.string().trim().min(1),
+  amount: z.number().positive(),
+  type: z.nativeEnum(TransactionType),
+  category: z.nativeEnum(TransactionCategory),
+  paymentMethod: z.nativeEnum(TransactionPaymentMethod),
+  date: z.date(),
+});
